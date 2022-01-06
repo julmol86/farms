@@ -1,0 +1,13 @@
+body {
+    margin-left: 35px;
+    margin-right: 35px;
+    font-size: 20px;
+    
+  }
+h1 {
+    color: #198754 !important;
+    font-family: "Lucida Handwriting", Arial;
+}
+.navBarLevel {
+    color: white !important;
+  }
