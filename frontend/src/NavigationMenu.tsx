@@ -1,10 +1,10 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 
 const NavigationMenu = () => {
-    
+    const { t } = useTranslation();
     return(
     <Navbar bg="success" expand="lg" /* variant="dark" */>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -12,9 +12,9 @@ const NavigationMenu = () => {
             {/* class me-auto : content to the right, without: to the left */}
             <Nav className="me-auto">
               
-              <Nav.Link className = "navBarLevel" href="/">Main page</Nav.Link>
-              <Nav.Link className = "navBarLevel" href="/about">About us</Nav.Link>
-              <Nav.Link className = "navBarLevel" href="/contacts">Contacts</Nav.Link>
+              <Nav.Link className = "navBarLevel" href="/">{t('navbar.main')}</Nav.Link>
+              <Nav.Link className = "navBarLevel" href="/about">{t('navbar.about')}</Nav.Link>
+              <Nav.Link className = "navBarLevel" href="/contacts">{t('navbar.contact')}</Nav.Link>
             </Nav>
             
           </Navbar.Collapse>
