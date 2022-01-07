@@ -1,0 +1,18 @@
+create table farm(
+  id SERIAL PRIMARY KEY,
+  farmname VARCHAR(100) NOT NULL UNIQUE
+);
+
+create table farmdata(
+  id BIGSERIAL PRIMARY KEY,
+  farm_id INTEGER NOT NULL REFERENCES farm(id),
+  datetimestamp TIMESTAMP WITH TIME ZONE NOT NULL,
+  metrictype VARCHAR(11) NOT NULL,
+  metricvalue NUMERIC(5,2) NOT NULL
+);
+
+create table filesuploaded(
+  id SERIAL PRIMARY KEY,
+  filename VARCHAR(100) NOT NULL UNIQUE,
+  createstamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
