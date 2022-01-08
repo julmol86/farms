@@ -2,6 +2,10 @@ const Koa = require('koa');
 const Router = require('@koa/router');
 const Cors = require('@koa/cors');
 const BodyParser = require('koa-body');
+import { parseCsv } from './csvParserToDb';
+
+// call on startup
+parseCsv();
 
 const app = new Koa();
 const router = new Router();
