@@ -1,5 +1,19 @@
 {
     "navbar.main": "Front page",
+    "navbar.stats": "Statistics",
+    "navbar.aggregatestats": "Aggregate Stats",
     "navbar.about": "About us",
-    "navbar.contact": "Contacts"
+    "navbar.contact": "Contacts",
+
+    "stat.table.header.farmname": "Farm name",
+    "stat.table.header.date": "Date",
+    "stat.table.header.metrictype": "Metric type",
+    "stat.table.header.metricvalue": "Metric value",
+
+    "aggstat.table.header.farmname": "Farm name",
+    "aggstat.table.header.min": "Minimun value",
+    "aggstat.table.header.max": "Maximun value",
+    "aggstat.table.header.avg": "Average value",
+    "aggstat.table.header.count": "Count"
+
 }

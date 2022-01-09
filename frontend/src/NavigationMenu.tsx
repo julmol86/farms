@@ -13,6 +13,8 @@ const NavigationMenu = () => {
             <Nav className="me-auto">
               
               <Nav.Link className = "navBarLevel" href="/">{t('navbar.main')}</Nav.Link>
+              <Nav.Link className = "navBarLevel" href="/stats">{t('navbar.stats')}</Nav.Link>
+              <Nav.Link className = "navBarLevel" href="/aggregatestats">{t('navbar.aggregatestats')}</Nav.Link>
               <Nav.Link className = "navBarLevel" href="/about">{t('navbar.about')}</Nav.Link>
               <Nav.Link className = "navBarLevel" href="/contacts">{t('navbar.contact')}</Nav.Link>
             </Nav>
