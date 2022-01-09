@@ -1,4 +1,7 @@
 {
+  "header.signin": "Sign in",
+  "header.signup": "Sign up",
+
   "navbar.main": "Front page",
   "navbar.stats": "Statistics",
   "navbar.aggregatestats": "Aggregate Stats",
@@ -14,6 +17,12 @@
   "aggstat.table.header.min": "Minimun value",
   "aggstat.table.header.max": "Maximun value",
   "aggstat.table.header.avg": "Average value",
-  "aggstat.table.header.count": "Count"
+  "aggstat.table.header.count": "Count",
+
+  "signup.title": "Welcome to AgroStat",
+  "signup.name": "Farm's name",
+  "signup.login": "Login",
+  "signup.password": "Password",
+  "signup.button": "Sign up"
 
 }

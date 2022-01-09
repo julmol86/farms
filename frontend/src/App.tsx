@@ -7,6 +7,7 @@ import Header from './Header'
 import NavigationMenu from './NavigationMenu'
 import Statistics from './Statistics'
 import AggregateStatistics from './AggregateStatistics'
+import SignUp from './SignUp'
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/aggregatestats" element={ <AggregateStatistics/> } />
         <Route path="/about" element={ <div>About</div> } />
         <Route path="/contacts" element={ <div>Contacts</div> } />
+        <Route path="/signup" element={ <SignUp/> } />
       </Routes>
     </>
   )

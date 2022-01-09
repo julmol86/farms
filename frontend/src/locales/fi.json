@@ -1,4 +1,7 @@
 {
+  "header.signin": "Kirjaudu sisään",
+  "header.signup": "Rekisteröidy",
+
   "navbar.main": "Etusivu",
   "navbar.stats": "Tilastot",
   "navbar.aggregatestats": "Koosteet",
@@ -14,5 +17,11 @@
   "aggstat.table.header.min": "Min arvo",
   "aggstat.table.header.max": "Max arvo",
   "aggstat.table.header.avg": "Keskiarvo",
-  "aggstat.table.header.count": "Yhteensä"
+  "aggstat.table.header.count": "Yhteensä",
+
+  "signup.title": "Tervetuloa",
+  "signup.name": "Ferman nimi",
+  "signup.login": "Käyttäjätunnus",
+  "signup.password": "Salasana",
+  "signup.button": "Rekisteröidy"
 }
