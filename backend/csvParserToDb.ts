@@ -1,14 +1,14 @@
-const fs = require("fs");
-import { parseFile } from 'fast-csv';
-import sql from './db';
+import { parseFile } from 'fast-csv'
+import sql from './db'
+const fs = require('fs')
 
-const CSV_FOLDER = './csv';
-const ALLOWED_METRICS = ['temperature', 'rainfall','ph'];
+const CSV_FOLDER = './csv'
+const ALLOWED_METRICS = ['temperature', 'rainfall', 'ph']
 
 const validateRow = (row: string[]): boolean => {
-  const metricType = row[2]?.toLowerCase();
+  const metricType = row[2]?.toLowerCase()
   if (ALLOWED_METRICS.includes(metricType)) {
-    const metricValue = row[3] ? parseFloat(row[3]) : undefined;
+    const metricValue = row[3] ? parseFloat(row[3]) : undefined
     const phOk = metricValue != null && metricType === 'ph' && metricValue >= 0 && metricValue <= 14
     const temperatureOk = metricValue != null && metricType === 'temperature' && metricValue >= -50 && metricValue <= 100
     const rainfallOk = metricValue != null && metricType === 'rainfall' && metricValue >= 0 && metricValue <= 500
@@ -21,29 +21,28 @@ const convertRowToObj = (row: string[]) => ({
   farmname: row[0],
   datetimestamp: row[1] ? new Date(row[1]) : undefined,
   metrictype: row[2]?.toLowerCase(),
-  metricvalue: row[3] ? parseFloat(row[3]) : undefined,
+  metricvalue: row[3] ? parseFloat(row[3]) : undefined
 })
 
 export const parseCsv = () => {
-  fs.readdir(CSV_FOLDER, (err: any, filenames: any) => {
+  fs.readdir(CSV_FOLDER, (_err: any, filenames: any) => {
     filenames.forEach(async (filename: any) => {
       // check if file has been already parsed before
-      const [stamp] = await sql`select createstamp from filesuploaded where filename = ${filename}`;
+      const [stamp] = await sql`select createstamp from filesuploaded where filename = ${filename}`
 
       // proceed if content does not exist in DB yet
       if (stamp) {
         console.log(`File ${filename} has been parsed on ${stamp.createstamp}, skipping...`)
       } else {
-        let validData: any = [];
+        let validData: any = []
         parseFile(CSV_FOLDER + '/' + filename)
           .on('error', error => console.error(error))
           .on('data', row => {
-            if(validateRow(row)) {
+            if (validateRow(row)) {
               validData.push(convertRowToObj(row))
             }
           })
           .on('end', async (rowCount: number) => {
-
             // insert farm
             const [farm] = await sql`
               insert into farm (
@@ -73,8 +72,8 @@ export const parseCsv = () => {
             `
 
             console.log(`File ${filename}: parsed ${rowCount} total rows, ${rowCount - validData.length} row(s) were discarded.`)
-          });
+          })
       }
-    });
-  });
+    })
+  })
 }
