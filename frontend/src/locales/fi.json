@@ -1,18 +1,18 @@
 {
-    "navbar.main": "Etusivu",
-    "navbar.stats": "Tilastot",
-    "navbar.aggregatestats": "Koosteet",
-    "navbar.about": "Tiedot meistä",
-    "navbar.contact": "Yhteystiedot",
+  "navbar.main": "Etusivu",
+  "navbar.stats": "Tilastot",
+  "navbar.aggregatestats": "Koosteet",
+  "navbar.about": "Tiedot meistä",
+  "navbar.contact": "Yhteystiedot",
 
-    "stat.table.header.farmname": "Ferman nimi",
-    "stat.table.header.date": "Päivämäära",
-    "stat.table.header.metrictype": "type",
-    "stat.table.header.metricvalue": "value",
+  "stat.table.header.farmname": "Ferman nimi",
+  "stat.table.header.date": "Päivämäära",
+  "stat.table.header.metrictype": "type",
+  "stat.table.header.metricvalue": "value",
 
-    "aggstat.table.header.farmname": "Ferman nimi",
-    "aggstat.table.header.min": "Min arvo",
-    "aggstat.table.header.max": "Max arvo",
-    "aggstat.table.header.avg": "Keskiarvo",
-    "aggstat.table.header.count": "Yhteensä"
+  "aggstat.table.header.farmname": "Ferman nimi",
+  "aggstat.table.header.min": "Min arvo",
+  "aggstat.table.header.max": "Max arvo",
+  "aggstat.table.header.avg": "Keskiarvo",
+  "aggstat.table.header.count": "Yhteensä"
 }

@@ -1,14 +1,14 @@
 /* farm nae. min, max, average, count */
+import React from 'react'
 import Table from 'react-bootstrap/Table'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 
 const AggregateStatistics = () => {
-    
-    const { t } = useTranslation();
-    
-    return(
+  const { t } = useTranslation()
+
+  return (
         <>
-          
+
           <Table striped bordered hover>
             <thead>
                 <tr>
@@ -22,7 +22,7 @@ const AggregateStatistics = () => {
             {/* here will be data from DB */}
           </Table>
         </>
-    )
+  )
 }
 
-export default AggregateStatistics;
+export default AggregateStatistics

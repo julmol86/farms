@@ -1,13 +1,13 @@
+import React from 'react'
 import Table from 'react-bootstrap/Table'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
 
 const Statistics = () => {
-    
-    const { t } = useTranslation();
-    
-    return(
+  const { t } = useTranslation()
+
+  return (
         <>
-          
+
           <Table striped bordered hover>
             <thead>
                 <tr>
@@ -20,7 +20,7 @@ const Statistics = () => {
             {/* here will be data from DB */}
           </Table>
         </>
-    )
+  )
 }
 
-export default Statistics;
+export default Statistics

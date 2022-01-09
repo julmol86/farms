@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import {
   Routes,
   Route
-} from "react-router-dom";
-import Header from './Header';
-import NavigationMenu from './NavigationMenu';
-import Statistics from './Statistics';
-import AggregateStatistics from './AggregateStatistics';
+} from 'react-router-dom'
+import Header from './Header'
+import NavigationMenu from './NavigationMenu'
+import Statistics from './Statistics'
+import AggregateStatistics from './AggregateStatistics'
 
 const App = () => {
   return (
@@ -22,6 +22,6 @@ const App = () => {
       </Routes>
     </>
   )
-};
+}
 
-export default App;
+export default App
