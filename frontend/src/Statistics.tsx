@@ -35,27 +35,36 @@ const Statistics = () => {
   }, [farmId, metricType, startDate, endDate])
   return (
         <>
-          <Form.Label>{t('stat.form.farm')}</Form.Label>
-          <Form.Select defaultValue="" onChange={(e) => setFarmId(e.target.value)}>
-            <option value="">-- {t('stat.form.allfarms')} --</option>
-            {farms.map((x: any) => <option value={x.id} key={x.id}>{x.farmname}</option>)}
-          </Form.Select>
+          <div className = "mt-4">
+            <Form.Group className="mb-3 col-3">
+              <Form.Label>{t('stat.form.farm')}</Form.Label>
+              <Form.Select defaultValue="" onChange={(e) => setFarmId(e.target.value)}>
+                <option value="">-- {t('stat.form.allfarms')} --</option>
+                {farms.map((x: any) => <option value={x.id} key={x.id}>{x.farmname}</option>)}
+              </Form.Select>
+            </Form.Group>
 
-          <Form.Label>{t('stat.form.metrictype')}</Form.Label>
-          <Form.Select defaultValue="" onChange={(e) => setMetricType(e.target.value)}>
-            <option value="">-- {t('stat.form.allmetrics')} --</option>
-            <option value="temperature">{t('stat.form.temperature')}</option>
-            <option value="rainfall">{t('stat.form.rainfall')}</option>
-            <option value="ph">{t('stat.form.ph')}</option>
-          </Form.Select>
+            <Form.Group className="mb-3 col-3">
+              <Form.Label>{t('stat.form.metrictype')}</Form.Label>
+              <Form.Select defaultValue="" onChange={(e) => setMetricType(e.target.value)}>
+                <option value="">-- {t('stat.form.allmetrics')} --</option>
+                <option value="temperature">{t('stat.form.temperature')}</option>
+                <option value="rainfall">{t('stat.form.rainfall')}</option>
+                <option value="ph">{t('stat.form.ph')}</option>
+              </Form.Select>
+            </Form.Group>
 
-          <Form.Label>{t('stat.form.startdate')}</Form.Label>
-          <Form.Control defaultValue="2019-01-01" type="date" onChange={(e) => setStartDate(e.target.value)} />
+            <Form.Group className="mb-3 col-3">
+              <Form.Label>{t('stat.form.startdate')}</Form.Label>
+              <Form.Control defaultValue="2019-01-01" type="date" onChange={(e) => setStartDate(e.target.value)} />
+            </Form.Group>
 
-          <Form.Label>{t('stat.form.enddate')}</Form.Label>
-          <Form.Control defaultValue="2019-01-05" type="date" onChange={(e) => setEndDate(e.target.value)} />
+            <Form.Group className="mb-3 col-3">
+              <Form.Label>{t('stat.form.enddate')}</Form.Label>
+              <Form.Control defaultValue="2019-01-05" type="date" onChange={(e) => setEndDate(e.target.value)} />
+            </Form.Group>
 
-          <span>{t('stat.form.maxcount')}</span>
+          </div>
 
           <Table className = "mt-4" striped bordered hover>
             <thead>
