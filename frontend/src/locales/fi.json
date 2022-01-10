@@ -13,6 +13,18 @@
   "stat.table.header.metrictype": "type",
   "stat.table.header.metricvalue": "value",
 
+  "stat.form.farm": "Valitse ferma",
+  "stat.form.allfarms": "kaikki fermat",
+  "stat.form.metrictype": "Valitse vaihtoehto",
+  "stat.form.allmetrics": "Kaikki",
+  "stat.form.temperature": "Lämpötila",
+  "stat.form.ph": "pH",
+  "stat.form.rainfall": "Sademäärä",
+  "stat.form.startdate": "Aloitus",
+  "stat.form.enddate": "Mihin asti",
+  "stat.form.maxcount": "Vain 1000 riviä näkyy",
+
+
   "aggstat.table.header.farmname": "Ferman nimi",
   "aggstat.table.header.min": "Min arvo",
   "aggstat.table.header.max": "Max arvo",

@@ -13,6 +13,11 @@ parseCsv()
 const app = new Koa()
 const router = new Router()
 
+router.get('/farms', async (ctx: any) => {
+  ctx.status = 200
+  ctx.body = await sql`select id, farmname from farm`
+})
+
 router.get('/data', async (ctx: any) => {
   const params = ctx.request.query
 
