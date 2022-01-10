@@ -15,6 +15,9 @@ const Header = () => {
   const signUp = () => {
     navigate('/signup')
   }
+  const signIn = () => {
+    navigate('/signin')
+  }
 
   return (
         <>
@@ -23,7 +26,7 @@ const Header = () => {
             {/* </div> */}
             <ButtonGroup className = "header">
               <Button variant="success" onClick={changeLanguageHandler}>{notUsedLang}</Button>
-              <Button variant="success" /* onClick={signIn} */>{t('header.signin')}</Button>
+              <Button variant="success" onClick={signIn}>{t('header.signin')}</Button>
               <Button variant="success" onClick={signUp}> {t('header.signup')}</Button>
 
             </ButtonGroup>

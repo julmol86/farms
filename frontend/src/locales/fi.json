@@ -23,5 +23,10 @@
   "signup.name": "Ferman nimi",
   "signup.login": "Käyttäjätunnus",
   "signup.password": "Salasana",
-  "signup.button": "Rekisteröidy"
+  "signup.button": "Rekisteröidy",
+
+  "signin.title": "Kirjaudu sisään AgroStat-tilillesi",
+  "signin.login": "Käyttäjätunnus",
+  "signin.password": "Salasana",
+  "signin.button": "Kirjaudu sisään"
 }

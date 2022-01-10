@@ -8,7 +8,7 @@ const Statistics = () => {
   return (
         <>
 
-          <Table striped bordered hover>
+          <Table className = "mt-4" striped bordered hover>
             <thead>
                 <tr>
                     <th>{t('stat.table.header.farmname')}</th>

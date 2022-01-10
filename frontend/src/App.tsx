@@ -8,6 +8,7 @@ import NavigationMenu from './NavigationMenu'
 import Statistics from './Statistics'
 import AggregateStatistics from './AggregateStatistics'
 import SignUp from './SignUp'
+import SignIn from './SignIn'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/about" element={ <div>About</div> } />
         <Route path="/contacts" element={ <div>Contacts</div> } />
         <Route path="/signup" element={ <SignUp/> } />
+        <Route path="/signin" element={ <SignIn/> } />
       </Routes>
     </>
   )

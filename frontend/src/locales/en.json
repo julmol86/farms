@@ -21,8 +21,13 @@
 
   "signup.title": "Welcome to AgroStat",
   "signup.name": "Farm's name",
-  "signup.login": "Login",
+  "signup.login": "Username",
   "signup.password": "Password",
-  "signup.button": "Sign up"
+  "signup.button": "Sign up",
+
+  "signin.title": "Sign in to your AgroStat account",
+  "signin.login": "Username",
+  "signin.password": "Password",
+  "signin.button": "Sign in"
 
 }
