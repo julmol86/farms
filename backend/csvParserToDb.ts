@@ -1,9 +1,8 @@
 import { parseFile } from 'fast-csv'
 import sql from './db'
-const fs = require('fs')
+import { ALLOWED_METRICS, CSV_FOLDER } from './constants'
 
-const CSV_FOLDER = './csv'
-const ALLOWED_METRICS = ['temperature', 'rainfall', 'ph']
+const fs = require('fs')
 
 const validateRow = (row: string[]): boolean => {
   const metricType = row[2]?.toLowerCase()
