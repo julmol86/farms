@@ -13,22 +13,9 @@ parseCsv()
 const app = new Koa()
 const router = new Router()
 
-router.get('/', (ctx: any) => {
-  ctx.body = 'Hello World'
-})
-
 router.get('/data', async (ctx: any) => {
   const params = ctx.request.query
-  console.log(params)
-  let queryBase = `
-    select
-      f.farmname,
-      fd.datetimestamp,
-      fd.metrictype,
-      fd.metricvalue
-    from farmdata fd
-    left join farm f on f.id = fd.farm_id
-  `
+
   // param validation
   /* add farm validation later */
   const metricNotOk = params.metrictype && !ALLOWED_METRICS.includes(params.metrictype)
@@ -38,6 +25,15 @@ router.get('/data', async (ctx: any) => {
     ctx.status = 500
     ctx.body = 'wrong param(s):' + (metricNotOk ? ' metrictype' : '') + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
   } else {
+    let queryBase = `
+      select
+        f.farmname,
+        fd.datetimestamp,
+        fd.metrictype,
+        fd.metricvalue
+      from farmdata fd
+      left join farm f on f.id = fd.farm_id
+    `
     if (Object.keys(params).length !== 0) {
       queryBase += ' where'
       if (params.farm) {
