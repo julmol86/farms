@@ -29,7 +29,7 @@ const SignIn = () => {
         <h2>{t('signin.title')}</h2>
         <br />
 
-        <Form.Group className="mb-3 col-3">
+        <Form.Group className="mb-3 col-lg-3 col-md-6">
           <Form.Label>{t('signin.login')} *</Form.Label>
           <Form.Control {...register('login')} type="text" className={`form-control ${errors.login ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
@@ -37,7 +37,7 @@ const SignIn = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3 col-3">
+        <Form.Group className="mb-3 col-lg-3 col-md-6">
           <Form.Label>{t('signin.password')} * </Form.Label>
           <Form.Control {...register('password')} type="password" className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">

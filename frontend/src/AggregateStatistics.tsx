@@ -24,7 +24,7 @@ const AggregateStatistics = () => {
   return (
         <>
           <div className = "mt-4">
-            <Form.Group className="mb-3 col-3">
+            <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.metrictype')}</Form.Label>
               <Form.Select defaultValue="temperature" onChange={(e) => setMetricType(e.target.value)}>
                 <option value="temperature">{t('stat.form.temperature')}</option>
@@ -33,12 +33,12 @@ const AggregateStatistics = () => {
               </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-3 col-3">
+            <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.startdate')}</Form.Label>
               <Form.Control type="date" onChange={(e) => setStartDate(e.target.value)} />
             </Form.Group>
 
-            <Form.Group className="mb-3 col-3">
+            <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.enddate')}</Form.Label>
               <Form.Control type="date" onChange={(e) => setEndDate(e.target.value)} />
             </Form.Group>

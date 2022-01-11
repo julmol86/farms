@@ -69,7 +69,7 @@ const Statistics = () => {
   return (
         <>
           <div className = "mt-4">
-            <Form.Group className="mb-3 col-3">
+            <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.farm')}</Form.Label>
               <Form.Select defaultValue="" onChange={(e) => setFarmId(e.target.value)}>
                 <option value="">-- {t('stat.form.allfarms')} --</option>
@@ -77,7 +77,7 @@ const Statistics = () => {
               </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-3 col-3">
+            <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.metrictype')}</Form.Label>
               <Form.Select defaultValue="" onChange={(e) => setMetricType(e.target.value)}>
                 <option value="">-- {t('stat.form.allmetrics')} --</option>
@@ -87,12 +87,12 @@ const Statistics = () => {
               </Form.Select>
             </Form.Group>
 
-            <Form.Group className="mb-3 col-3">
+            <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.startdate')}</Form.Label>
               <Form.Control defaultValue="" type="date" onChange={(e) => setStartDate(e.target.value)} />
             </Form.Group>
 
-            <Form.Group className="mb-3 col-3">
+            <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.enddate')}</Form.Label>
               <Form.Control defaultValue="" type="date" onChange={(e) => setEndDate(e.target.value)} />
             </Form.Group>
