@@ -16,8 +16,8 @@ const Statistics = () => {
   const [farms, setFarms] = useState([])
   const [farmId, setFarmId] = useState<string>()
   const [metricType, setMetricType] = useState<string>()
-  const [startDate, setStartDate] = useState<string>('2019-01-01')
-  const [endDate, setEndDate] = useState<string>('2019-01-05')
+  const [startDate, setStartDate] = useState<string>()
+  const [endDate, setEndDate] = useState<string>()
 
   useEffect(() => {
     // fetch data from backend
@@ -89,12 +89,12 @@ const Statistics = () => {
 
             <Form.Group className="mb-3 col-3">
               <Form.Label>{t('stat.form.startdate')}</Form.Label>
-              <Form.Control defaultValue="2019-01-01" type="date" onChange={(e) => setStartDate(e.target.value)} />
+              <Form.Control defaultValue="" type="date" onChange={(e) => setStartDate(e.target.value)} />
             </Form.Group>
 
             <Form.Group className="mb-3 col-3">
               <Form.Label>{t('stat.form.enddate')}</Form.Label>
-              <Form.Control defaultValue="2019-01-05" type="date" onChange={(e) => setEndDate(e.target.value)} />
+              <Form.Control defaultValue="" type="date" onChange={(e) => setEndDate(e.target.value)} />
             </Form.Group>
 
           </div>
