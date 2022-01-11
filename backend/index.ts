@@ -65,6 +65,44 @@ router.get('/data', async (ctx: any) => {
   }
 })
 
+router.get('/aggregate', async (ctx: any) => {
+  const params = ctx.request.query
+
+  // metric type is a required paramater
+  if (!params.metrictype || !ALLOWED_METRICS.includes(params.metrictype)) {
+    ctx.status = 500
+    ctx.body = 'metrictype param is missing or invalid'
+    return
+  }
+
+  // param validation
+  const startdateNotOk = params.startdate && (!DATE_REGEX.test(params.startdate) || (params.enddate && new Date(params.startdate) > new Date(params.enddate)))
+  const enddateNotOk = params.enddate && (!DATE_REGEX.test(params.enddate) || (params.startdate && new Date(params.startdate) > new Date(params.enddate)))
+  if (startdateNotOk || enddateNotOk) {
+    ctx.status = 500
+    ctx.body = 'invalid param(s):' + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
+    return
+  }
+
+  let queryBase = `
+    select
+      f.farmname, min(fd.metricvalue), max(fd.metricvalue), avg(fd.metricvalue), count(fd.metricvalue)
+    from farmdata fd
+    left join farm f on f.id = fd.farm_id
+    where fd.metrictype = '${params.metrictype}'
+  `
+
+  if (params.startdate) {
+    queryBase += ` and fd.datetimestamp >= '${params.startdate}'::date`
+  }
+  if (params.enddate) {
+    queryBase += ` and fd.datetimestamp <= '${params.enddate}'::date`
+  }
+
+  ctx.status = 200
+  ctx.body = await sql.unsafe(queryBase + ' group by f.id order by f.farmname')
+})
+
 app
   .use(Cors())
   .use(BodyParser())
