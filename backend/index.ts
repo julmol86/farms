@@ -23,12 +23,14 @@ router.get('/data', async (ctx: any) => {
 
   // param validation
   /* add farm validation later */
+  const farmIds = await sql`select id::text from farm`
+  const farmNotOk = params.farm && !farmIds.map((x: any) => x.id).includes(params.farm)
   const metricNotOk = params.metrictype && !ALLOWED_METRICS.includes(params.metrictype)
   const startdateNotOk = params.startdate && (!DATE_REGEX.test(params.startdate) || (params.enddate && new Date(params.startdate) > new Date(params.enddate)))
   const enddateNotOk = params.enddate && (!DATE_REGEX.test(params.enddate) || (params.startdate && new Date(params.startdate) > new Date(params.enddate)))
   if (metricNotOk || startdateNotOk || enddateNotOk) {
     ctx.status = 500
-    ctx.body = 'wrong param(s):' + (metricNotOk ? ' metrictype' : '') + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
+    ctx.body = 'wrong param(s):' + (farmNotOk ? ' farm' : '') + (metricNotOk ? ' metrictype' : '') + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
   } else {
     let queryBase = `
       select
@@ -39,21 +41,21 @@ router.get('/data', async (ctx: any) => {
       from farmdata fd
       left join farm f on f.id = fd.farm_id
     `
+    // filter if necessary
     if (Object.keys(params).length !== 0) {
-      queryBase += ' where'
       if (params.farm) {
-        queryBase += ` lower(f.farmname) like '${'%' + params.farm + '%'}'`
+        queryBase += ` where f.id = '${params.farm}'`
       }
       if (params.metrictype) {
-        queryBase += params.farm ? ' and' : ''
+        queryBase += params.farm ? ' and' : ' where'
         queryBase += ` fd.metrictype = '${params.metrictype}'`
       }
       if (params.startdate) {
-        queryBase += params.farm || params.metrictype ? ' and' : ''
+        queryBase += params.farm || params.metrictype ? ' and' : ' where'
         queryBase += ` fd.datetimestamp >= '${params.startdate}'::date`
       }
       if (params.enddate) {
-        queryBase += params.farm || params.metrictype || params.startdate ? ' and' : ''
+        queryBase += params.farm || params.metrictype || params.startdate ? ' and' : ' where'
         queryBase += ` fd.datetimestamp <= '${params.enddate}'::date`
       }
     }

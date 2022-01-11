@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 import { Form } from 'react-bootstrap'
-import Table from 'react-bootstrap/Table'
 import { useTranslation } from 'react-i18next'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
+
+import BootstrapTable from 'react-bootstrap-table-next'
+import paginationFactory from 'react-bootstrap-table2-paginator'
 
 const Statistics = () => {
   const { t, i18n } = useTranslation()
@@ -33,6 +38,34 @@ const Statistics = () => {
     // call function
     fetchStatList()
   }, [farmId, metricType, startDate, endDate])
+
+  const columns = [
+    {
+      dataField: 'farmname',
+      text: t('stat.table.header.farmname'),
+      sort: true
+    },
+    {
+      dataField: 'datetimestamp',
+      text: t('stat.table.header.date'),
+      // note: this column value does not refresh immediately on language change, potential bug in react-table component?
+      formatter: (value: any) => <span>{new Date(value).toLocaleString(i18n.language === 'fi' ? 'fi-FI' : 'en-US')}</span>,
+      sort: true
+    },
+    {
+      dataField: 'metrictype',
+      text: t('stat.table.header.metrictype'),
+      // note: this column value does not refresh immediately on language change, potential bug in react-table component?
+      formatter: (value: any) => <span>{t(`stat.table.data.metrictype.${value}`)}</span>,
+      sort: true
+    },
+    {
+      dataField: 'metricvalue',
+      text: t('stat.table.header.metricvalue'),
+      sort: true
+    }
+  ]
+
   return (
         <>
           <div className = "mt-4">
@@ -66,26 +99,14 @@ const Statistics = () => {
 
           </div>
 
-          <Table className = "mt-4" striped bordered hover>
-            <thead>
-                <tr>
-                    <th>{t('stat.table.header.farmname')}</th>
-                    <th>{t('stat.table.header.date')}</th>
-                    <th>{t('stat.table.header.metrictype')}</th>
-                    <th>{t('stat.table.header.metricvalue')}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {statList.map((x: any, idx) => (
-                    <tr key={idx}>
-                        <td>{x.farmname}</td>
-                        <td>{new Date(x.datetimestamp).toLocaleString(i18n.language === 'fi' ? 'fi-FI' : 'en-US')}</td>
-                        <td>{x.metrictype}</td>
-                        <td>{x.metricvalue}</td>
-                    </tr>
-                ))}
-            </tbody>
-          </Table>
+          <BootstrapTable
+            bootstrap4
+            keyField="id"
+            data={statList}
+            columns={columns}
+            pagination={paginationFactory({ sizePerPage: 25 })}
+          />
+
         </>
   )
 }

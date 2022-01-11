@@ -12,6 +12,9 @@
   "stat.table.header.date": "Date",
   "stat.table.header.metrictype": "Metric type",
   "stat.table.header.metricvalue": "Metric value",
+  "stat.table.data.metrictype.temperature": "Temperature",
+  "stat.table.data.metrictype.ph": "pH",
+  "stat.table.data.metrictype.rainfall": "Rainfall",
 
   "stat.form.farm": "Choose Farm",
   "stat.form.allfarms": "All farms",
@@ -22,7 +25,6 @@
   "stat.form.rainfall": "Rainfall",
   "stat.form.startdate": "Start date",
   "stat.form.enddate": "End date",
-  "stat.form.maxcount": "Only 1000 rows can be displayed",
 
   "aggstat.table.header.farmname": "Farm name",
   "aggstat.table.header.min": "Minimun value",
