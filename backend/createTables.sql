@@ -16,3 +16,10 @@ create table filesuploaded(
   filename VARCHAR(100) NOT NULL UNIQUE,
   createstamp TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+create table farmuser(
+  id BIGSERIAL PRIMARY KEY,
+  farm_id INTEGER NOT NULL REFERENCES farm(id),
+  login VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(100) NOT NULL
+);

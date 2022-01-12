@@ -3,6 +3,7 @@ import sql from './db'
 import { ALLOWED_METRICS, CSV_FOLDER } from './constants'
 
 const fs = require('fs')
+const bcrypt = require('bcrypt')
 
 const validateRow = (row: string[]): boolean => {
   const metricType = row[2]?.toLowerCase()
@@ -50,6 +51,25 @@ export const parseCsv = () => {
                 ${validData[0].farmname}
               ) returning id
             `
+
+            // hash password and insert user
+            const saltRounds = 10
+            const salt = await bcrypt.genSalt(saltRounds)
+            const passwordPlain = 'password_' + farm.id
+            const passwordHash = await bcrypt.hash(passwordPlain, salt)
+
+            const [user] = await sql`
+              insert into farmuser (
+                farm_id,
+                login,
+                password
+              ) values (
+                ${farm.id},
+                ${'user_' + farm.id},
+                ${passwordHash}
+              ) returning login, password
+            `
+            console.log(`Username '${user.login}' with password '${passwordPlain}' successfully created for farm '${validData[0].farmname}'.`)
 
             // add farmId param to every object
             validData = validData.map((x: any) => ({ ...x, farm_id: farm.id }))
