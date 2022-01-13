@@ -6,6 +6,7 @@ const Koa = require('koa')
 const Router = require('@koa/router')
 const Cors = require('@koa/cors')
 const BodyParser = require('koa-body')
+const bcrypt = require('bcrypt')
 
 // call on startup
 parseCsv()
@@ -101,6 +102,47 @@ router.get('/aggregate', async (ctx: any) => {
 
   ctx.status = 200
   ctx.body = await sql.unsafe(queryBase + ' group by f.id order by f.farmname')
+})
+
+router.post('/createfarm', async (ctx: any) => {
+  const data = ctx.request.body
+
+  try {
+    // create farm
+    const [farm] = await sql`
+      insert into farm (
+        farmname
+      ) values (
+        ${data.name}
+      ) returning id
+    `
+
+    // hash password for new user
+    const saltRounds = 10
+    const salt = await bcrypt.genSalt(saltRounds)
+    const passwordHash = await bcrypt.hash(data.password, salt)
+
+    // create user for that created farm
+    await sql`
+      insert into farmuser (
+        farm_id,
+        login,
+        password
+      ) values (
+        ${farm.id},
+        ${data.login},
+        ${passwordHash}
+      ) returning login, password
+    `
+    console.log(`Username '${data.login}' with password '${data.password}' successfully created for farm '${data.name}'.`)
+
+    ctx.status = 200
+    ctx.body = 'all good!'
+  } catch (e) {
+    console.log(e)
+    ctx.status = 500
+    ctx.body = 'not good'
+  }
 })
 
 app

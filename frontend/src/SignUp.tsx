@@ -13,14 +13,26 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 import { useTranslation } from 'react-i18next'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const { t } = useTranslation()
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(signUpSchema)
   })
   const onSubmitFunc = async (data: SignUpType) => {
-    reset()
+    try {
+      await axios.post(
+        'http://localhost:8091/createfarm',
+        data
+      )
+      reset()
+      navigate('/signin')
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   // UI form visible to user in browser
