@@ -145,6 +145,21 @@ router.post('/createfarm', async (ctx: any) => {
   }
 })
 
+router.post('/signin', async (ctx: any) => {
+  const data = ctx.request.body
+  const [user] = await sql`select * from farmuser where login = ${data.login}`
+
+  if (!user) {
+    ctx.status = 204 // 204 No Content
+    ctx.body = { loggedIn: false, login: undefined, farmId: undefined }
+  } else {
+    const res = await bcrypt.compare(data.password, user.password)
+
+    ctx.status = 200
+    ctx.body = { loggedIn: res, login: user.login, farmId: user.farm_id }
+  }
+})
+
 app
   .use(Cors())
   .use(BodyParser())

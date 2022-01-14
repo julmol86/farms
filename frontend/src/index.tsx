@@ -5,10 +5,13 @@ import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './styles.css'
 import './i18n'
+import { UserContextProvider } from './UserContext'
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <UserContextProvider>
+      <App />
+    </UserContextProvider>
   </BrowserRouter>,
   document.getElementById('root')
 )

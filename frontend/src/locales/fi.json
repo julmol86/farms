@@ -1,6 +1,8 @@
 {
   "header.signin": "Kirjaudu sisään",
   "header.signup": "Rekisteröidy",
+  "header.signout": "Kirjaudu ulos",
+  "header.welcome": "Tervetuloa",
 
   "navbar.main": "Etusivu",
   "navbar.stats": "Tilastot",

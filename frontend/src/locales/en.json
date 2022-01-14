@@ -1,6 +1,8 @@
 {
   "header.signin": "Sign in",
   "header.signup": "Sign up",
+  "header.signout": "Sign out",
+  "header.welcome": "Welcome",
 
   "navbar.main": "Front page",
   "navbar.stats": "Statistics",

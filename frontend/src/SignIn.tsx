@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 // import library for form making
 import { useForm } from 'react-hook-form'
@@ -13,14 +13,34 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 import { useTranslation } from 'react-i18next'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { UserContext } from './UserContext'
 
 const SignIn = () => {
+  const navigate = useNavigate()
   const { t } = useTranslation()
+  const { setUserData } = useContext(UserContext)
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(signInSchema)
   })
   const onSubmitFunc = async (data: SignInType) => {
-    reset()
+    try {
+      const resp = await axios.post(
+        'http://localhost:8091/signin',
+        data
+      )
+
+      if (resp.data?.loggedIn) {
+        // set up user data context at this stage
+        setUserData(resp.data)
+
+        reset()
+        navigate('/')
+      }
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   // UI form visible to user in browser
