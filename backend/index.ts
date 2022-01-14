@@ -81,11 +81,12 @@ router.get('/aggregate', async (ctx: any) => {
   }
 
   // param validation
+  const monthNotOk = params.month && !ALLOWED_MONTHS.includes(params.month)
   const startdateNotOk = params.startdate && (!DATE_REGEX.test(params.startdate) || (params.enddate && new Date(params.startdate) > new Date(params.enddate)))
   const enddateNotOk = params.enddate && (!DATE_REGEX.test(params.enddate) || (params.startdate && new Date(params.startdate) > new Date(params.enddate)))
-  if (startdateNotOk || enddateNotOk) {
+  if (monthNotOk || startdateNotOk || enddateNotOk) {
     ctx.status = 500
-    ctx.body = 'invalid param(s):' + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
+    ctx.body = 'invalid param(s):' + (monthNotOk ? ' month' : '') + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
     return
   }
 
@@ -96,7 +97,10 @@ router.get('/aggregate', async (ctx: any) => {
     left join farm f on f.id = fd.farm_id
     where fd.metrictype = '${params.metrictype}'
   `
-
+  if (params.month) {
+    queryBase += params.farm || params.metrictype ? ' and' : ' where'
+    queryBase += ` EXTRACT(MONTH FROM fd.datetimestamp)::int = ${params.month}`
+  }
   if (params.startdate) {
     queryBase += ` and fd.datetimestamp >= '${params.startdate}'::date`
   }
