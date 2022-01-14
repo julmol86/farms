@@ -2,7 +2,7 @@
   "header.signin": "Sign in",
   "header.signup": "Sign up",
   "header.signout": "Sign out",
-  "header.welcome": "Welcome",
+  "header.welcome": "You are logged in",
 
   "logout.success": "Logged out successfully",
   "login.success": "Login successful",

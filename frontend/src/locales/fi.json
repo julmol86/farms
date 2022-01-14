@@ -2,7 +2,7 @@
   "header.signin": "Kirjaudu sisään",
   "header.signup": "Rekisteröidy",
   "header.signout": "Kirjaudu ulos",
-  "header.welcome": "Tervetuloa",
+  "header.welcome": "Olet kirjautunut sisään",
 
   "logout.success": "Uloskirjautuminen onnistui",
   "login.success": "Kirjautuminen onnistui",

@@ -38,20 +38,25 @@ const Header = () => {
             {/* </div> */}
             <ButtonGroup className = "header">
               <Button variant="success" onClick={changeLanguageHandler}>{notUsedLang}</Button>
+            </ButtonGroup>
               {userData.loggedIn
                 ? (
                 <>
-                  <Button variant="success" onClick={signOut}>{t('header.signout')}</Button>
+                  <ButtonGroup className = "header">
+                    <Button variant="success" onClick={signOut}>{t('header.signout')}</Button>
+                  </ButtonGroup>
                   <span>{t('header.welcome') + ', ' + userData.login}</span>
                 </>
                   )
                 : (
                 <>
-                  <Button variant="success" onClick={signIn}>{t('header.signin')}</Button>
-                  <Button variant="success" onClick={signUp}> {t('header.signup')}</Button>
+                  <ButtonGroup className = "header">
+                    <Button variant="success" onClick={signIn}>{t('header.signin')}</Button>
+                    <Button variant="success" onClick={signUp}> {t('header.signup')}</Button>
+                  </ButtonGroup>
                 </>
                   )}
-            </ButtonGroup>
+            {/* </ButtonGroup> */}
         </>
   )
 }
