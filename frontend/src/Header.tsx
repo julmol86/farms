@@ -45,7 +45,7 @@ const Header = () => {
                   <ButtonGroup className = "header">
                     <Button variant="success" onClick={signOut}>{t('header.signout')}</Button>
                   </ButtonGroup>
-                  <span>{t('header.welcome') + ', ' + userData.login}</span>
+                  <span className = "spanheader">{t('header.welcome') + ', ' + userData.login}</span>
                 </>
                   )
                 : (

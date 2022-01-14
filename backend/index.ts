@@ -29,7 +29,7 @@ router.get('/data', async (ctx: any) => {
   const monthNotOk = params.month && !ALLOWED_MONTHS.includes(params.month)
   const startdateNotOk = params.startdate && (!DATE_REGEX.test(params.startdate) || (params.enddate && new Date(params.startdate) > new Date(params.enddate)))
   const enddateNotOk = params.enddate && (!DATE_REGEX.test(params.enddate) || (params.startdate && new Date(params.startdate) > new Date(params.enddate)))
-  if (metricNotOk || startdateNotOk || enddateNotOk) {
+  if (farmNotOk || metricNotOk || monthNotOk || startdateNotOk || enddateNotOk) {
     ctx.status = 500
     ctx.body = 'wrong param(s):' + (farmNotOk ? ' farm' : '') + (metricNotOk ? ' metrictype' : '') + (monthNotOk ? ' month' : '') + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
   } else {
