@@ -98,12 +98,12 @@ const Statistics = () => {
 
             <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.startdate')}</Form.Label>
-              <Form.Control defaultValue="" type="date" onChange={(e) => setStartDate(e.target.value)} />
+              <Form.Control defaultValue="" type="date" onChange={(e) => setStartDate(e.target.value)} disabled={!!month}/>
             </Form.Group>
 
             <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.enddate')}</Form.Label>
-              <Form.Control defaultValue="" type="date" onChange={(e) => setEndDate(e.target.value)} />
+              <Form.Control defaultValue="" type="date" onChange={(e) => setEndDate(e.target.value)} disabled={!!month}/>
             </Form.Group>
 
           </div>
