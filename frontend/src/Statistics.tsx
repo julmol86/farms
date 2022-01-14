@@ -16,6 +16,7 @@ const Statistics = () => {
   const [farms, setFarms] = useState([])
   const [farmId, setFarmId] = useState<string>()
   const [metricType, setMetricType] = useState<string>()
+  const [month, setMonth] = useState<string>()
   const [startDate, setStartDate] = useState<string>()
   const [endDate, setEndDate] = useState<string>()
 
@@ -32,12 +33,12 @@ const Statistics = () => {
   useEffect(() => {
     // fetch data from backend
     const fetchStatList = async () => {
-      const response = await axios.get(`http://localhost:8091/data?farm=${farmId ?? ''}&metrictype=${metricType ?? ''}&startdate=${startDate ?? ''}&enddate=${endDate ?? ''}`)
+      const response = await axios.get(`http://localhost:8091/data?farm=${farmId ?? ''}&metrictype=${metricType ?? ''}&month=${month ?? ''}&startdate=${startDate ?? ''}&enddate=${endDate ?? ''}`)
       setStatList(response.data)
     }
     // call function
     fetchStatList()
-  }, [farmId, metricType, startDate, endDate])
+  }, [farmId, metricType, month, startDate, endDate])
 
   const columns = [
     {
@@ -84,6 +85,14 @@ const Statistics = () => {
                 <option value="temperature">{t('stat.form.temperature')}</option>
                 <option value="rainfall">{t('stat.form.rainfall')}</option>
                 <option value="ph">{t('stat.form.ph')}</option>
+              </Form.Select>
+            </Form.Group>
+
+            <Form.Group className="mb-3 col-lg-3 col-md-6">
+              <Form.Label>{t('stat.form.month')}</Form.Label>
+              <Form.Select defaultValue="" onChange={(e) => setMonth(e.target.value)}>
+                <option value="">-- {t('stat.form.nomonthselected')} --</option>
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((x: number) => <option value={x} key={x}>{t(`stat.form.month.option.${x}`)}</option>)}
               </Form.Select>
             </Form.Group>
 

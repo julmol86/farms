@@ -1,6 +1,6 @@
 import { parseCsv } from './csvParserToDb'
 import sql from './db'
-import { ALLOWED_METRICS, DATE_REGEX } from './constants'
+import { ALLOWED_METRICS, ALLOWED_MONTHS, DATE_REGEX } from './constants'
 
 const Koa = require('koa')
 const Router = require('@koa/router')
@@ -23,15 +23,15 @@ router.get('/data', async (ctx: any) => {
   const params = ctx.request.query
 
   // param validation
-  /* add farm validation later */
   const farmIds = await sql`select id::text from farm`
   const farmNotOk = params.farm && !farmIds.map((x: any) => x.id).includes(params.farm)
   const metricNotOk = params.metrictype && !ALLOWED_METRICS.includes(params.metrictype)
+  const monthNotOk = params.month && !ALLOWED_MONTHS.includes(params.month)
   const startdateNotOk = params.startdate && (!DATE_REGEX.test(params.startdate) || (params.enddate && new Date(params.startdate) > new Date(params.enddate)))
   const enddateNotOk = params.enddate && (!DATE_REGEX.test(params.enddate) || (params.startdate && new Date(params.startdate) > new Date(params.enddate)))
   if (metricNotOk || startdateNotOk || enddateNotOk) {
     ctx.status = 500
-    ctx.body = 'wrong param(s):' + (farmNotOk ? ' farm' : '') + (metricNotOk ? ' metrictype' : '') + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
+    ctx.body = 'wrong param(s):' + (farmNotOk ? ' farm' : '') + (metricNotOk ? ' metrictype' : '') + (monthNotOk ? ' month' : '') + (startdateNotOk ? ' startdate' : '') + (enddateNotOk ? ' enddate' : '')
   } else {
     let queryBase = `
       select
@@ -50,6 +50,10 @@ router.get('/data', async (ctx: any) => {
       if (params.metrictype) {
         queryBase += params.farm ? ' and' : ' where'
         queryBase += ` fd.metrictype = '${params.metrictype}'`
+      }
+      if (params.month) {
+        queryBase += params.farm || params.metrictype ? ' and' : ' where'
+        queryBase += ` EXTRACT(MONTH FROM fd.datetimestamp)::int = ${params.month}`
       }
       if (params.startdate) {
         queryBase += params.farm || params.metrictype ? ' and' : ' where'
