@@ -4,6 +4,10 @@
   "header.signout": "Sign out",
   "header.welcome": "Welcome",
 
+  "logout.success": "Logged out successfully",
+  "login.success": "Login successful",
+  "login.reject": "Login failed. Check username and password",
+
   "navbar.main": "Front page",
   "navbar.stats": "Statistics",
   "navbar.aggregatestats": "Aggregate Stats",

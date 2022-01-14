@@ -7,6 +7,9 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { signInSchema, SignInType } from './signinSchema'
 
+// notification library imports
+import { toast } from 'react-toastify'
+
 // import individual components used in this form from bootstrap
 import Button from 'react-bootstrap/Button'
 
@@ -36,7 +39,14 @@ const SignIn = () => {
         setUserData(resp.data)
 
         reset()
+        toast.success(t('login.success'), {
+          position: 'top-center'
+        })
         navigate('/')
+      } else {
+        toast.error(t('login.reject'), {
+          position: 'top-center'
+        })
       }
     } catch (e) {
       console.log(e)

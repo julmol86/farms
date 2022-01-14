@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { UserContext, userContextEmpty } from './UserContext'
 
+// notification library imports
+import { toast } from 'react-toastify'
+
 const Header = () => {
   const { t, i18n } = useTranslation()
   const notUsedLang = i18n.language === 'fi' ? 'en' : 'fi'
@@ -23,6 +26,9 @@ const Header = () => {
   const signOut = () => {
     setUserData(userContextEmpty)
     navigate('/signin')
+    toast.success(t('logout.success'), {
+      position: 'top-center'
+    })
   }
 
   return (

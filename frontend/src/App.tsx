@@ -10,6 +10,10 @@ import AggregateStatistics from './AggregateStatistics'
 import SignUp from './SignUp'
 import SignIn from './SignIn'
 
+// notification library imports
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 const App = () => {
   return (
     <>
@@ -24,6 +28,7 @@ const App = () => {
         <Route path="/signup" element={ <SignUp/> } />
         <Route path="/signin" element={ <SignIn/> } />
       </Routes>
+      <ToastContainer />
     </>
   )
 }
