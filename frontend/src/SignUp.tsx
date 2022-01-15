@@ -49,6 +49,22 @@ const SignUp = () => {
           </Form.Text>
         </Form.Group>
 
+        <Form.Group className="mb-3 col-3">
+          <Form.Label>{t('signup.longitude')}</Form.Label>
+          <Form.Control {...register('longitude')} type="text" className={`form-control ${errors.longitude ? 'is-invalid' : ''}`} />
+          <Form.Text className="invalid-feedback">
+            {errors.longitude?.message}
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3 col-3">
+          <Form.Label>{t('signup.latitude')}</Form.Label>
+          <Form.Control {...register('latitude')} type="text" className={`form-control ${errors.latitude ? 'is-invalid' : ''}`} />
+          <Form.Text className="invalid-feedback">
+            {errors.latitude?.message}
+          </Form.Text>
+        </Form.Group>
+
         <Form.Group className="mb-3 col-lg-3 col-md-6">
           <Form.Label>{t('signup.login')} *</Form.Label>
           <Form.Control {...register('login')} type="text" className={`form-control ${errors.login ? 'is-invalid' : ''}`} />

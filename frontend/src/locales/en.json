@@ -54,6 +54,8 @@
 
   "signup.title": "Welcome to AgroStat",
   "signup.name": "Farm's name",
+  "signup.longitude": "Longitude",
+  "signup.latitude": "Latitude",
   "signup.login": "Username",
   "signup.password": "Password",
   "signup.button": "Sign up",

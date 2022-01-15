@@ -119,9 +119,13 @@ router.post('/createfarm', async (ctx: any) => {
     // create farm
     const [farm] = await sql`
       insert into farm (
-        farmname
+        farmname,
+        longitude,
+        latitude
       ) values (
-        ${data.name}
+        ${data.name},
+        ${data.longitude},
+        ${data.latitude}
       ) returning id
     `
 

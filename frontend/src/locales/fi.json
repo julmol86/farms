@@ -54,6 +54,8 @@
 
   "signup.title": "Tervetuloa",
   "signup.name": "Ferman nimi",
+  "signup.longitude": "Pituusaste",
+  "signup.latitude": "Leveysaste",
   "signup.login": "Käyttäjätunnus",
   "signup.password": "Salasana",
   "signup.button": "Rekisteröidy",

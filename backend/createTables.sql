@@ -1,6 +1,8 @@
 create table farm(
   id SERIAL PRIMARY KEY,
-  farmname VARCHAR(100) NOT NULL UNIQUE
+  farmname VARCHAR(100) NOT NULL UNIQUE,
+  longitude NUMERIC(15,10),
+  latitude NUMERIC(15,10)
 );
 
 create table farmdata(
