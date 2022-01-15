@@ -23,7 +23,7 @@ const NavigationMenu = () => {
                 <Link className = "navBarLevel" to="/aggregatestats">{t('navbar.aggregatestats')}</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className = "navBarLevel" to="/about">{t('navbar.about')}</Link>
+                <Link className = "navBarLevel" to="/farmdata">{t('navbar.farmdata')}</Link>
               </Nav.Link>
               <Nav.Link>
                 <Link className = "navBarLevel" to="/contacts">{t('navbar.contact')}</Link>

@@ -42,7 +42,7 @@ const SignIn = () => {
         toast.success(t('login.success'), {
           position: 'top-center'
         })
-        navigate('/')
+        navigate('/farmdata')
       } else {
         toast.error(t('login.reject'), {
           position: 'top-center'

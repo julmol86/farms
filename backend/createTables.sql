@@ -8,7 +8,7 @@ create table farm(
 create table farmdata(
   id BIGSERIAL PRIMARY KEY,
   farm_id INTEGER NOT NULL REFERENCES farm(id),
-  datetimestamp TIMESTAMP WITH TIME ZONE NOT NULL,
+  datetimestamp TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP,
   metrictype VARCHAR(11) NOT NULL,
   metricvalue NUMERIC(5,2) NOT NULL
 );

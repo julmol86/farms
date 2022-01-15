@@ -11,7 +11,7 @@
   "navbar.main": "Map",
   "navbar.stats": "Statistics",
   "navbar.aggregatestats": "Aggregate Stats",
-  "navbar.about": "About us",
+  "navbar.farmdata": "Add new data",
   "navbar.contact": "Contacts",
 
   "stat.table.header.farmname": "Farm name",
@@ -47,6 +47,7 @@
   "stat.form.enddate": "End date",
 
   "form.message.mandatory": "This field is required",
+  "form.message.validation": "Incorrect value",
 
   "aggstat.table.header.farmname": "Farm name",
   "aggstat.table.header.min": "Minimun value",
@@ -65,6 +66,11 @@
   "signin.title": "Sign in to your AgroStat account",
   "signin.login": "Username",
   "signin.password": "Password",
-  "signin.button": "Sign in"
+  "signin.button": "Sign in",
+
+  "farmdata.title": "Add new data",
+  "farmdata.metrictype": "Choose metric type",
+  "farmdata.metricvalue": "Enter value",
+  "farmdata.submit": "Submit"
 
 }

@@ -11,7 +11,7 @@
   "navbar.main": "Kartta",
   "navbar.stats": "Tilastot",
   "navbar.aggregatestats": "Koosteet",
-  "navbar.about": "Tiedot meistä",
+  "navbar.farmdata": "Lisää uusi arvo",
   "navbar.contact": "Yhteystiedot",
 
   "stat.table.header.farmname": "Ferman nimi",
@@ -43,10 +43,11 @@
   "stat.form.month.option.10": "Lokakuu",
   "stat.form.month.option.11": "Marraskuu",
   "stat.form.month.option.12": "Joulukuu",
-  "stat.form.startdate": "Aloituspäivämäära",
-  "stat.form.enddate": "Mihin asti",
+  "stat.form.startdate": "Aloituspäivä",
+  "stat.form.enddate": "Lopetuspäivä",
 
   "form.message.mandatory": "Täyttäminen on pakollista",
+  "form.message.validation": "Arvo on virheellinen",
   
   "aggstat.table.header.farmname": "Ferman nimi",
   "aggstat.table.header.min": "Min arvo",
@@ -65,5 +66,10 @@
   "signin.title": "Kirjaudu sisään AgroStat-tilillesi",
   "signin.login": "Käyttäjätunnus",
   "signin.password": "Salasana",
-  "signin.button": "Kirjaudu sisään"
+  "signin.button": "Kirjaudu sisään",
+
+  "farmdata.title": "Lisää uusi arvo",
+  "farmdata.metrictype": "Valitse vaihtoehto",
+  "farmdata.metricvalue": "Lisää arvo",
+  "farmdata.submit": "Talenna"
 }

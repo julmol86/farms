@@ -172,6 +172,36 @@ router.post('/signin', async (ctx: any) => {
   }
 })
 
+router.get('/farm/:farmId/farmdata', async (ctx: any) => {
+  ctx.status = 200
+  ctx.body = await sql`
+    select
+      fd.datetimestamp,
+      fd.metrictype,
+      fd.metricvalue
+    from farmdata fd
+    left join farm f on f.id = fd.farm_id
+    where f.id = ${ctx.params.farmId}
+    order by fd.datetimestamp desc
+  `
+})
+
+router.post('/insertfarmdata', async (ctx: any) => {
+  const data = ctx.request.body
+  ctx.status = 200
+  ctx.body = await sql`
+    insert into farmdata (
+      farm_id,
+      metrictype,
+      metricvalue
+    ) values (
+      ${data.farm},
+      ${data.metrictype},
+      ${data.metricvalue}
+    ) returning datetimestamp, metrictype, metricvalue
+  `
+})
+
 app
   .use(Cors())
   .use(BodyParser())
