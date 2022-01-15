@@ -46,6 +46,8 @@
   "stat.form.startdate": "Start date",
   "stat.form.enddate": "End date",
 
+  "form.message.mandatory": "This field is required",
+
   "aggstat.table.header.farmname": "Farm name",
   "aggstat.table.header.min": "Minimun value",
   "aggstat.table.header.max": "Maximun value",

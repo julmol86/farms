@@ -63,7 +63,7 @@ const SignIn = () => {
           <Form.Label>{t('signin.login')} *</Form.Label>
           <Form.Control {...register('login')} type="text" className={`form-control ${errors.login ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
-            {errors.login?.message}
+            {t(errors.login?.message)}
           </Form.Text>
         </Form.Group>
 
@@ -71,7 +71,7 @@ const SignIn = () => {
           <Form.Label>{t('signin.password')} * </Form.Label>
           <Form.Control {...register('password')} type="password" className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
-            {errors.password?.message}
+            {t(errors.password?.message)}
           </Form.Text>
         </Form.Group>
 

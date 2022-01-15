@@ -45,7 +45,7 @@ const SignUp = () => {
           <Form.Label>{t('signup.name')} *</Form.Label>
           <Form.Control {...register('name')} type="text" className={`form-control ${errors.name ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
-            {errors.name?.message}
+            {t(errors.name?.message)}
           </Form.Text>
         </Form.Group>
 
@@ -69,7 +69,7 @@ const SignUp = () => {
           <Form.Label>{t('signup.login')} *</Form.Label>
           <Form.Control {...register('login')} type="text" className={`form-control ${errors.login ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
-            {errors.login?.message}
+            {t(errors.login?.message)}
           </Form.Text>
         </Form.Group>
 
@@ -77,7 +77,7 @@ const SignUp = () => {
           <Form.Label>{t('signup.password')} * </Form.Label>
           <Form.Control {...register('password')} type="password" className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
-            {errors.password?.message}
+            {t(errors.password?.message)}
           </Form.Text>
         </Form.Group>
 

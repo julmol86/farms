@@ -45,6 +45,8 @@
   "stat.form.month.option.12": "Joulukuu",
   "stat.form.startdate": "Aloituspäivämäära",
   "stat.form.enddate": "Mihin asti",
+
+  "form.message.mandatory": "Täyttäminen on pakollista",
   
   "aggstat.table.header.farmname": "Ferman nimi",
   "aggstat.table.header.min": "Min arvo",

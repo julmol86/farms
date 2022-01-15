@@ -4,8 +4,8 @@ import * as yup from 'yup'
 // check required fields and generate individual error messages
 
 export const signInSchema = yup.object().shape({
-  login: yup.string().required('Täyttäminen on pakollista'),
-  password: yup.string().required('Täyttäminen on pakollista')
+  login: yup.string().required('form.message.mandatory'),
+  password: yup.string().required('form.message.mandatory')
 })
 
 // export type that exactly matches schema above
