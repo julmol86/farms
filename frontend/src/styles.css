@@ -26,4 +26,9 @@ h2 {
   margin-bottom: 20px !important;
   margin-left: 15px;
 }
+.map-container {
+  width: 1000px;
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
 

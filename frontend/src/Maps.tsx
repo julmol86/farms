@@ -4,8 +4,10 @@ import {
   ComposableMap,
   Geographies,
   Geography,
-  Marker
+  Marker,
+  ZoomableGroup
 } from 'react-simple-maps'
+import { Container } from 'react-bootstrap'
 
 // url to a valid topojson file
 const geoUrl =
@@ -25,36 +27,42 @@ const Maps = () => {
   }, [])
 
   return (
-    <ComposableMap
-            projection="geoAzimuthalEqualArea"
-            projectionConfig={{
-              rotate: [-27, -66, 0],
-              scale: 2500
-            }}
-          >
-            <Geographies geography={geoUrl}>
-              {({ geographies }) => geographies.map((geo:any) =>
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill="#EAEAEC"
-                  stroke="#D6D6DA"
-                />
-              )}
-            </Geographies>
-            {farms.map((x: any) => (
-              <Marker key={x.farmname} coordinates={[x.longitude, x.latitude]}>
-                <circle r={10} fill="#F00" stroke="#fff" strokeWidth={2} />
-                <text
-                  textAnchor="middle"
-                  y={20}
-                  style={{ fontFamily: 'system-ui', fill: '#5D5A6D', fontSize: '8px' }}
-                >
-                  {x.farmname}
-                </text>
-              </Marker>
-            ))}
-    </ComposableMap>
+    <Container className='map-container'>
+      <ComposableMap
+        projection="geoAzimuthalEqualArea"
+        width={800}
+        height={600}
+        projectionConfig={{
+          rotate: [-27, -65, 0],
+          scale: 3200
+        }}
+      >
+        <ZoomableGroup zoom={1}>
+          <Geographies geography={geoUrl}>
+            {({ geographies }) => geographies.map((geo:any) =>
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
+                fill="#EAEAEC"
+                stroke="#D6D6DA"
+              />
+            )}
+          </Geographies>
+          {farms.map((x: any) => (
+            <Marker key={x.farmname} coordinates={[x.longitude, x.latitude]}>
+              <circle r={8} fill="#198754" stroke="#fff" strokeWidth={2} />
+              <text
+                textAnchor="middle"
+                y={20}
+                style={{ fontFamily: 'system-ui', fill: '#5D5A6D', fontSize: '12px', fontWeight: 'bold' }}
+              >
+                {x.farmname}
+              </text>
+            </Marker>
+          ))}
+        </ZoomableGroup>
+      </ComposableMap>
+    </Container>
   )
 }
 

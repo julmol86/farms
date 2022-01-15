@@ -8,7 +8,7 @@
   "login.success": "Kirjautuminen onnistui",
   "login.reject": "Kirjautuminen epäonnistui, tarkista tunnus ja salasana",
 
-  "navbar.main": "Etusivu",
+  "navbar.main": "Kartta",
   "navbar.stats": "Tilastot",
   "navbar.aggregatestats": "Koosteet",
   "navbar.about": "Tiedot meistä",

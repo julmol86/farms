@@ -8,7 +8,7 @@
   "login.success": "Login successful",
   "login.reject": "Login failed. Check username and password",
 
-  "navbar.main": "Front page",
+  "navbar.main": "Map",
   "navbar.stats": "Statistics",
   "navbar.aggregatestats": "Aggregate Stats",
   "navbar.about": "About us",
