@@ -9,6 +9,7 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css'
 
 import BootstrapTable from 'react-bootstrap-table-next'
 import paginationFactory from 'react-bootstrap-table2-paginator'
+import { LineChart, CartesianGrid, Line, Tooltip, XAxis, YAxis } from 'recharts'
 
 const Statistics = () => {
   const { t, i18n } = useTranslation()
@@ -67,6 +68,10 @@ const Statistics = () => {
     }
   ]
 
+  const formatDateToString = (d: Date) => {
+    return d.getUTCFullYear() + '-' + (d.getUTCMonth() + 1) + '-' + d.getUTCDate()
+  }
+
   return (
         <>
           <div className = "mt-4">
@@ -107,6 +112,21 @@ const Statistics = () => {
             </Form.Group>
 
           </div>
+
+          {farmId && metricType && (month || (startDate && endDate)) && (
+            <LineChart
+              width={1100}
+              height={300}
+              data={statList.map((x: any) => ({ ...x, dateformatted: formatDateToString(new Date(x.datetimestamp)) }))}
+              margin={{ top: 20, right: 20, left: 10, bottom: 20 }}
+            >
+              <XAxis dataKey="dateformatted" style={{ fontSize: '12px' }} />
+              <YAxis dataKey="metricvalue" style={{ fontSize: '12px' }} />
+              <Tooltip />
+              <CartesianGrid stroke="#f5f5f5" />
+              <Line type="monotone" dataKey="metricvalue" stroke="#198754" yAxisId={0} />
+            </LineChart>
+          )}
 
           <BootstrapTable
             bootstrap4
