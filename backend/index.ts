@@ -16,7 +16,7 @@ const router = new Router()
 
 router.get('/farms', async (ctx: any) => {
   ctx.status = 200
-  ctx.body = await sql`select id, farmname from farm`
+  ctx.body = await sql`select id, farmname, longitude, latitude from farm`
 })
 
 router.get('/data', async (ctx: any) => {

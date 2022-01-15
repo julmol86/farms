@@ -9,6 +9,7 @@ import Statistics from './Statistics'
 import AggregateStatistics from './AggregateStatistics'
 import SignUp from './SignUp'
 import SignIn from './SignIn'
+import Maps from './Maps'
 
 // notification library imports
 import { ToastContainer } from 'react-toastify'
@@ -20,7 +21,7 @@ const App = () => {
       <Header/>
       <NavigationMenu/>
       <Routes>
-        <Route path="/" element={ <div>Home page</div> } />
+        <Route path="/" element={ <Maps/> } />
         <Route path="/stats" element={ <Statistics/> } />
         <Route path="/aggregatestats" element={ <AggregateStatistics/> } />
         <Route path="/about" element={ <div>About</div> } />

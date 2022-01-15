@@ -1,6 +1,7 @@
 import { parseFile } from 'fast-csv'
 import sql from './db'
 import { ALLOWED_METRICS, CSV_FOLDER } from './constants'
+import { coordinates } from './coord'
 
 const fs = require('fs')
 const bcrypt = require('bcrypt')
@@ -44,11 +45,16 @@ export const parseCsv = () => {
           })
           .on('end', async (rowCount: number) => {
             // insert farm
+            const coordId = Math.floor(Math.random() * coordinates.length)
             const [farm] = await sql`
               insert into farm (
-                farmname
+                farmname,
+                longitude,
+                latitude
               ) values (
-                ${validData[0].farmname}
+                ${validData[0].farmname},
+                ${coordinates[coordId].longitude},
+                ${coordinates[coordId].latitude}
               ) returning id
             `
 
