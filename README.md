@@ -9,8 +9,9 @@
 - [Purpose of AgroStat App](#purpose-of-agrostat-app)
 - [Main features](#main-features)
 - [TODO](#todo)
+- [Screenshots](#screenshots)
 - [Work log](#work-log)
-- [Author](*Author)
+- [Author](#author)
 # Prerequisites
 Application is developed and tested on Windows 10 operating system / Google Chrome browser.
 
@@ -36,15 +37,21 @@ Directory for backend: ./backend
 
 For backend, run commands via terminal in directory ./backend
 
+```
 npm install
-
+```
+```
 nodemon index.ts
+```
 
 For frontend, run commands via terminal in directory ./frontend
 
+```
 npm install
-
+```
+```
 npm start
+```
 
 Open http://localhost:3000 to view  in the browser
 
@@ -60,16 +67,21 @@ DB service should be running.
 
 run command via terminal in directory ./backend
 
+```
 npm run test
+```
 
 ### e2e tests
 directory for e2e: ./e2e
 
 For e2e, run commands via terminal in directory ./e2e
 
+```
 npm install
-
+```
+```
 .\node_modules\.bin\cypress open
+```
 
 The cypress dialog window will open, from where you can run a single test or the whole test suite at once.
 
@@ -106,14 +118,31 @@ Application provides statistical information and graphical representation of far
 **Adding new data.** Registered users are able to add new values for their own farm. User selects metric type from dropdown table and adds manually  metric value. Value is validated and user sees error message if data is out of allowed range. Date and time are added automatically at the moment data is inserted to database.
 
 **User input form validation.** Fields marked with an asterisk are mandatory. User sees a warning message when submit button is pressed and some mandatory fields are empty.
+# Screenshots
+## Statistics page
+
+![Screenshot 2022-01-16 170901](https://user-images.githubusercontent.com/85441725/149668336-471fb436-7b44-4de8-abf0-136e6dc1be92.png)
+
+## Sign up page
+
+![Screenshot 2022-01-16 170936](https://user-images.githubusercontent.com/85441725/149668344-9ce4bfdd-cee9-40b6-b54d-0fee9a81324e.png)
+
+## Aggregate stats page
+
+![Screenshot 2022-01-16 171040](https://user-images.githubusercontent.com/85441725/149668348-8f91e2d6-4cc4-43df-91ac-0bd61aa5f01f.png)
+
+## Mobile view
+
+![Screenshot 2022-01-16 171142](https://user-images.githubusercontent.com/85441725/149668353-cf104270-a8dd-4b3a-b1f7-fccea3a3f7d7.png)
+
 # TODO
 * Running backend in Docker
 * Running backend in Cloud
 * .env file
-* clear dates when month selected
-* login and password validation on new user creation
+* Clear dates when month selected
+* Login and password validation on new user creation
 * DB programmatic creation
-* improve typescript practices, e.g. remove any:s etc.
+* Improve typescript practices, e.g. remove any:s etc.
 # Work log
 * 6.01.2022 Frontend: Created new React app, added Bootstrap styles, created Navbar, added localization (English-Finnish) and translation files. 
 * 7.01.2022 Backend: Added backend template (Node, Koa) and created tables in PostgreSQL database, connecting Node with PostgreSQL using postgres library.
@@ -126,5 +155,6 @@ added farm validation. Frontend: sign up page template, added  statistics table 
 * 13.01.2022 Backend: endpoint for creating new farm. Frontend: sign up form for new user registration.
 * 14.01.2022 Backend: endpoint for sign in, added month parameter  (statistics calculation), added month parameter (aggregate calculation). Frontend: sign in form and context, sign out  button, notifications (sign in, sign up, sign out), added month-filter to statistics calculation, added month-filter for aggregate calculation. 
 * 15.01.2022 Backend: added coordinates to DB table and to /createfarm endpoint, new farm data insertion via UI. Frontend: added graphs, added farm coordinates to sign up form, added map with farm location, new data insertion form. 
+* 16.01.2022 Integration tests and e2e tests added.
 # Author
 Yulia Mozhaeva
