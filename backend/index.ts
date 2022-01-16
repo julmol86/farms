@@ -208,4 +208,4 @@ app
   .use(router.routes())
   .use(router.allowedMethods())
 
-app.listen(8091)
+module.exports = app.listen(8091)
