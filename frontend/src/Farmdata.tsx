@@ -65,9 +65,9 @@ const Farmdata = () => {
         <h2>{t('farmdata.title')}</h2>
         <br />
 
-        <Form.Group className="mb-3 col-5">
+        <Form.Group className="mb-3 col-lg-3 col-md-6">
           <Form.Label>{t('farmdata.metrictype')} *</Form.Label>
-          <Form.Select {...register('metrictype')} defaultValue="temperature" className={`form-control ${errors.metrictype ? 'is-invalid' : ''}`}>
+          <Form.Select {...register('metrictype')} data-testid='farmdata-metrictype' defaultValue="temperature" className={`form-control ${errors.metrictype ? 'is-invalid' : ''}`}>
             <option value="temperature">{t('stat.form.temperature')}</option>
             <option value="rainfall">{t('stat.form.rainfall')}</option>
             <option value="ph">{t('stat.form.ph')}</option>
@@ -77,26 +77,28 @@ const Farmdata = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3 col-3">
+        <Form.Group className="mb-3 col-lg-3 col-md-6">
           <Form.Label>{t('farmdata.metricvalue')} *</Form.Label>
-          <Form.Control {...register('metricvalue')} type="text" className={`form-control ${errors.metricvalue ? 'is-invalid' : ''}`} />
+          <Form.Control {...register('metricvalue')} data-testid='farmdata-metricvalue' type="text" className={`form-control ${errors.metricvalue ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
             {t(errors.metricvalue?.message)}
           </Form.Text>
         </Form.Group>
 
-        <Button variant="success" type="submit">
+        <Button variant="success" type="submit" data-testid='farmdata-button'>
           {t('farmdata.submit')}
         </Button>
       </Form>
 
-      <BootstrapTable
-        bootstrap4
-        keyField="id"
-        data={farmdata}
-        columns={columns}
-        pagination={paginationFactory({ sizePerPage: 10 })}
-      />
+      <div data-testid='farmdata-table'>
+        <BootstrapTable
+          bootstrap4
+          keyField="id"
+          data={farmdata}
+          columns={columns}
+          pagination={paginationFactory({ sizePerPage: 10 })}
+        />
+      </div>
     </>
   )
 }

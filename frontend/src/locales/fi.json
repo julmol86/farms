@@ -53,7 +53,7 @@
   "aggstat.table.header.min": "Min arvo",
   "aggstat.table.header.max": "Max arvo",
   "aggstat.table.header.avg": "Keskiarvo",
-  "aggstat.table.header.count": "Yhteensä",
+  "aggstat.table.header.count": "Datan kokonaismäärä",
 
   "signup.title": "Tervetuloa",
   "signup.name": "Ferman nimi",

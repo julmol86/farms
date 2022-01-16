@@ -25,9 +25,6 @@ const NavigationMenu = () => {
               <Nav.Link>
                 <Link className = "navBarLevel" data-testid='navbar-farmdata' to="/farmdata">{t('navbar.farmdata')}</Link>
               </Nav.Link>
-              <Nav.Link>
-                <Link className = "navBarLevel" to="/contacts">{t('navbar.contact')}</Link>
-              </Nav.Link>
             </Nav>
 
           </Navbar.Collapse>

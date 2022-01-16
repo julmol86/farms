@@ -33,9 +33,7 @@ const Header = () => {
 
   return (
         <>
-            {/* <div> */}
             <h1>AgroStat</h1>
-            {/* </div> */}
             <ButtonGroup className = "header">
               <Button variant="success" onClick={changeLanguageHandler} data-testid='header-lang'>{notUsedLang}</Button>
             </ButtonGroup>
@@ -43,7 +41,7 @@ const Header = () => {
                 ? (
                 <>
                   <ButtonGroup className = "header">
-                    <Button variant="success" onClick={signOut}>{t('header.signout')}</Button>
+                    <Button variant="success" onClick={signOut} data-testid='header-signout'>{t('header.signout')}</Button>
                   </ButtonGroup>
                   <span className = "spanheader">{t('header.welcome') + ', ' + userData.login}</span>
                 </>
@@ -51,12 +49,11 @@ const Header = () => {
                 : (
                 <>
                   <ButtonGroup className = "header">
-                    <Button variant="success" onClick={signIn}>{t('header.signin')}</Button>
-                    <Button variant="success" onClick={signUp}> {t('header.signup')}</Button>
+                    <Button variant="success" onClick={signIn} data-testid='header-signin'>{t('header.signin')}</Button>
+                    <Button variant="success" onClick={signUp} data-testid='header-signup'> {t('header.signup')}</Button>
                   </ButtonGroup>
                 </>
                   )}
-            {/* </ButtonGroup> */}
         </>
   )
 }

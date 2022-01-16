@@ -43,7 +43,7 @@ const SignUp = () => {
 
         <Form.Group className="mb-3 col-lg-3 col-md-6">
           <Form.Label>{t('signup.name')} *</Form.Label>
-          <Form.Control {...register('name')} type="text" className={`form-control ${errors.name ? 'is-invalid' : ''}`} />
+          <Form.Control {...register('name')} data-testid='signup-name' type="text" className={`form-control ${errors.name ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
             {t(errors.name?.message)}
           </Form.Text>
@@ -51,7 +51,7 @@ const SignUp = () => {
 
         <Form.Group className="mb-3 col-3">
           <Form.Label>{t('signup.longitude')}</Form.Label>
-          <Form.Control {...register('longitude')} type="text" className={`form-control ${errors.longitude ? 'is-invalid' : ''}`} />
+          <Form.Control {...register('longitude')} data-testid='signup-longitude' type="text" className={`form-control ${errors.longitude ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
             {errors.longitude?.message}
           </Form.Text>
@@ -59,7 +59,7 @@ const SignUp = () => {
 
         <Form.Group className="mb-3 col-3">
           <Form.Label>{t('signup.latitude')}</Form.Label>
-          <Form.Control {...register('latitude')} type="text" className={`form-control ${errors.latitude ? 'is-invalid' : ''}`} />
+          <Form.Control {...register('latitude')} data-testid='signup-latitude' type="text" className={`form-control ${errors.latitude ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
             {errors.latitude?.message}
           </Form.Text>
@@ -67,7 +67,7 @@ const SignUp = () => {
 
         <Form.Group className="mb-3 col-lg-3 col-md-6">
           <Form.Label>{t('signup.login')} *</Form.Label>
-          <Form.Control {...register('login')} type="text" className={`form-control ${errors.login ? 'is-invalid' : ''}`} />
+          <Form.Control {...register('login')} data-testid='signup-login' type="text" className={`form-control ${errors.login ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
             {t(errors.login?.message)}
           </Form.Text>
@@ -75,13 +75,13 @@ const SignUp = () => {
 
         <Form.Group className="mb-3 col-lg-3 col-md-6">
           <Form.Label>{t('signup.password')} * </Form.Label>
-          <Form.Control {...register('password')} type="password" className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
+          <Form.Control {...register('password')} data-testid='signup-password' type="password" className={`form-control ${errors.password ? 'is-invalid' : ''}`} />
           <Form.Text className="invalid-feedback">
             {t(errors.password?.message)}
           </Form.Text>
         </Form.Group>
 
-        <Button variant="success" type="submit">
+        <Button variant="success" type="submit" data-testid='signup-button'>
         {t('signup.button')}
         </Button>
       </Form>

@@ -27,7 +27,7 @@ const AggregateStatistics = () => {
           <div className = "mt-4">
             <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.metrictype')}</Form.Label>
-              <Form.Select defaultValue="temperature" onChange={(e) => setMetricType(e.target.value)}>
+              <Form.Select defaultValue="temperature" data-testid='aggregate-metrictype' onChange={(e) => setMetricType(e.target.value)}>
                 <option value="temperature">{t('stat.form.temperature')}</option>
                 <option value="rainfall">{t('stat.form.rainfall')}</option>
                 <option value="ph">{t('stat.form.ph')}</option>
@@ -36,7 +36,7 @@ const AggregateStatistics = () => {
 
             <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.month')}</Form.Label>
-              <Form.Select defaultValue="" onChange={(e) => setMonth(e.target.value)}>
+              <Form.Select defaultValue="" data-testid='aggregate-month' onChange={(e) => setMonth(e.target.value)}>
                 <option value="">-- {t('stat.form.nomonthselected')} --</option>
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((x: number) => <option value={x} key={x}>{t(`stat.form.month.option.${x}`)}</option>)}
               </Form.Select>
@@ -44,16 +44,16 @@ const AggregateStatistics = () => {
 
             <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.startdate')}</Form.Label>
-              <Form.Control type="date" onChange={(e) => setStartDate(e.target.value)} disabled={!!month}/>
+              <Form.Control type="date" data-testid='aggregate-startdate' onChange={(e) => setStartDate(e.target.value)} disabled={!!month}/>
             </Form.Group>
 
             <Form.Group className="mb-3 col-lg-3 col-md-6">
               <Form.Label>{t('stat.form.enddate')}</Form.Label>
-              <Form.Control type="date" onChange={(e) => setEndDate(e.target.value)} disabled={!!month}/>
+              <Form.Control type="date" data-testid='aggregate-enddate' onChange={(e) => setEndDate(e.target.value)} disabled={!!month}/>
             </Form.Group>
           </div>
 
-          <Table className = "mt-4" striped bordered hover>
+          <Table className = "mt-4" data-testid='aggregate-table' striped bordered hover>
             <thead>
                 <tr>
                     <th>{t('aggstat.table.header.farmname')}</th>

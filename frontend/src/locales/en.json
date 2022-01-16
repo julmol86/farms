@@ -53,7 +53,7 @@
   "aggstat.table.header.min": "Minimun value",
   "aggstat.table.header.max": "Maximun value",
   "aggstat.table.header.avg": "Average value",
-  "aggstat.table.header.count": "Count",
+  "aggstat.table.header.count": "Total amount of data",
 
   "signup.title": "Welcome to AgroStat",
   "signup.name": "Farm's name",
