@@ -11,7 +11,7 @@
 - [TODO](#todo)
 - [Screenshots](#screenshots)
 - [Work log](#work-log)
-- [Author](*Author)
+- [Author](#author)
 # Prerequisites
 Application is developed and tested on Windows 10 operating system / Google Chrome browser.
 
