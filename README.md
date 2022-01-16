@@ -37,15 +37,21 @@ Directory for backend: ./backend
 
 For backend, run commands via terminal in directory ./backend
 
+```
 npm install
-
+```
+```
 nodemon index.ts
+```
 
 For frontend, run commands via terminal in directory ./frontend
 
+```
 npm install
-
+```
+```
 npm start
+```
 
 Open http://localhost:3000 to view  in the browser
 
@@ -61,16 +67,21 @@ DB service should be running.
 
 run command via terminal in directory ./backend
 
+```
 npm run test
+```
 
 ### e2e tests
 directory for e2e: ./e2e
 
 For e2e, run commands via terminal in directory ./e2e
 
+```
 npm install
-
+```
+```
 .\node_modules\.bin\cypress open
+```
 
 The cypress dialog window will open, from where you can run a single test or the whole test suite at once.
 
@@ -128,10 +139,10 @@ Application provides statistical information and graphical representation of far
 * Running backend in Docker
 * Running backend in Cloud
 * .env file
-* clear dates when month selected
-* login and password validation on new user creation
+* Clear dates when month selected
+* Login and password validation on new user creation
 * DB programmatic creation
-* improve typescript practices, e.g. remove any:s etc.
+* Improve typescript practices, e.g. remove any:s etc.
 # Work log
 * 6.01.2022 Frontend: Created new React app, added Bootstrap styles, created Navbar, added localization (English-Finnish) and translation files. 
 * 7.01.2022 Backend: Added backend template (Node, Koa) and created tables in PostgreSQL database, connecting Node with PostgreSQL using postgres library.
@@ -144,6 +155,6 @@ added farm validation. Frontend: sign up page template, added  statistics table 
 * 13.01.2022 Backend: endpoint for creating new farm. Frontend: sign up form for new user registration.
 * 14.01.2022 Backend: endpoint for sign in, added month parameter  (statistics calculation), added month parameter (aggregate calculation). Frontend: sign in form and context, sign out  button, notifications (sign in, sign up, sign out), added month-filter to statistics calculation, added month-filter for aggregate calculation. 
 * 15.01.2022 Backend: added coordinates to DB table and to /createfarm endpoint, new farm data insertion via UI. Frontend: added graphs, added farm coordinates to sign up form, added map with farm location, new data insertion form. 
-* 16.01.2022 integration tests and e2e tests added
+* 16.01.2022 Integration tests and e2e tests added.
 # Author
 Yulia Mozhaeva
