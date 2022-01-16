@@ -37,7 +37,7 @@ const Header = () => {
             <h1>AgroStat</h1>
             {/* </div> */}
             <ButtonGroup className = "header">
-              <Button variant="success" onClick={changeLanguageHandler}>{notUsedLang}</Button>
+              <Button variant="success" onClick={changeLanguageHandler} data-testid='header-lang'>{notUsedLang}</Button>
             </ButtonGroup>
               {userData.loggedIn
                 ? (

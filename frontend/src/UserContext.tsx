@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react'
 export const userContextEmpty = { loggedIn: false, login: undefined, farmId: undefined }
 
 export const UserContext = createContext({
-  userData: JSON.parse(localStorage.getItem('userData') ?? '') ?? userContextEmpty,
+  userData: localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')!) : userContextEmpty,
   setUserData: (userData: any) => {}
 })
 
@@ -14,7 +14,7 @@ export const UserContextProvider = (props: any) => {
   }
 
   const initState = {
-    userData: JSON.parse(localStorage.getItem('userData') ?? '') ?? userContextEmpty,
+    userData: localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')!) : userContextEmpty,
     setUserData: setUserData
   }
 

@@ -14,16 +14,16 @@ const NavigationMenu = () => {
             <Nav className="me-auto">
 
               <Nav.Link>
-                <Link className = "navBarLevel" to="/">{t('navbar.main')}</Link>
+                <Link className = "navBarLevel" data-testid='navbar-map' to="/">{t('navbar.main')}</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className = "navBarLevel" to="/stats">{t('navbar.stats')}</Link>
+                <Link className = "navBarLevel" data-testid='navbar-stats' to="/stats">{t('navbar.stats')}</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className = "navBarLevel" to="/aggregatestats">{t('navbar.aggregatestats')}</Link>
+                <Link className = "navBarLevel" data-testid='navbar-aggregatestats' to="/aggregatestats">{t('navbar.aggregatestats')}</Link>
               </Nav.Link>
               <Nav.Link>
-                <Link className = "navBarLevel" to="/farmdata">{t('navbar.farmdata')}</Link>
+                <Link className = "navBarLevel" data-testid='navbar-farmdata' to="/farmdata">{t('navbar.farmdata')}</Link>
               </Nav.Link>
               <Nav.Link>
                 <Link className = "navBarLevel" to="/contacts">{t('navbar.contact')}</Link>

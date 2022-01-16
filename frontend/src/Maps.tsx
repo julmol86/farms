@@ -27,7 +27,7 @@ const Maps = () => {
   }, [])
 
   return (
-    <Container className='map-container'>
+    <Container className='map-container' data-testid='maps-container'>
       <ComposableMap
         projection="geoAzimuthalEqualArea"
         width={800}
